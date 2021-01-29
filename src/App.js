@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
+import Loading from "react-loading-animation"
 import "./index.css";
 
 const Home = lazy(() => import("./pages/Home/index"));
@@ -11,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Suspense fallback={<div>Loading Page...</div>}>
+        <Suspense fallback={<div className="loading"><Loading /></div>}>
           {/*put a nice preloader here in fallback*/}
           <Header />
           <Route path="/" exact component={Home}></Route>
